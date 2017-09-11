@@ -1,0 +1,30 @@
+!<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			
+		$(function () {
+			// body...
+			$('#quote').submit(function (event) {
+				// body...
+				var url = 'quote.php?symbol=' + $('#symbol').val();
+					$.getJSON(url, function(data) {
+						alert(data.price);
+					});
+					event.preventDefault();
+			});
+		});
+
+		</script>
+		<title>ajax-1<title>
+	</head>
+	<body>
+		<form onsubmit="quote(); return false;">
+			Symbol: <input autocomplete="off" id="symbol" type="text"/>
+			<br/><br/>
+			<input type="submit" value="Get Quote"/>
+		</form>
+	</body>
+</html>
